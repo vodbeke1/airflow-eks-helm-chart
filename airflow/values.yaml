@@ -472,7 +472,7 @@ dags:
     ## the name of an existing PVC to use
     existingClaim: ~
   gitSync:
-    enabled: false
+    enabled: true
     # git repo clone url
     # ssh examples ssh://git@github.com/apache/airflow.git
     # git@github.com:apache/airflow.git
@@ -487,7 +487,7 @@ dags:
     maxFailures: 0
     # subpath within the repo where dags are located
     # should be "" if dags are at repo root
-    subPath: "tests/dags"
+    subPath: "dags"
     # if your repo needs a user name password
     # you can load them to a k8s secret like the one below
     #   ---
@@ -525,3 +525,4 @@ dags:
     containerRepository: k8s.gcr.io/git-sync
     containerTag: v3.1.6
     containerName: git-sync
+    containerPullPolicy: Always

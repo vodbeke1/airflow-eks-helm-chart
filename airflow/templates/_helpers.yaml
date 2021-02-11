@@ -105,6 +105,7 @@
 {{- define "git_sync_container"}}
 - name: {{ .Values.dags.gitSync.containerName }}
   image: "{{ .Values.dags.gitSync.containerRepository }}:{{ .Values.dags.gitSync.containerTag }}"
+  imagePullPolicy: {{ .Values.dags.gitSync.containerPullPolicy }}
   env:
     {{- if .Values.dags.gitSync.sshKeySecret }}
     - name: GIT_SSH_KEY_FILE
